@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
+use App\Models\Customer;
+use App\Models\Rental;
 use Illuminate\Http\Request;
 
 class RentalController extends Controller
@@ -59,5 +62,5 @@ class RentalController extends Controller
         $rental->delete();
         return redirect()->route('rentals.index')->with('success', 'Rental deleted successfully.');
     }
-    
+
 }
