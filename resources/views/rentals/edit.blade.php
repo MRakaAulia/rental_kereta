@@ -1,44 +1,64 @@
-<h1>Edit Rental</h1>
+@extends('layouts.app')
 
-@if ($errors->any())
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-@endif
+@section('title', 'Edit Rental')
 
-<form action="{{ route('rentals.update', $rental->id) }}" method="POST">
-    @csrf
-    @method('PUT')
+@section('header', 'Edit Rental')
 
-    <label for="car_id">Car:</label>
-    <select id="car_id" name="car_id">
-        @foreach ($cars as $car)
-            <option value="{{ $car->id }}" @if ($car->id == old('car_id', $rental->car_id)) selected @endif>{{ $car->name }}</option>
-        @endforeach
-    </select>
-    <br>
+@section('content')
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Edit Rental</h3>
+    </div>
+    <div class="card-body">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-    <label for="customer_id">Customer:</label>
-    <select id="customer_id" name="customer_id">
-        @foreach ($customers as $customer)
-            <option value="{{ $customer->id }}" @if ($customer->id == old('customer_id', $rental->customer_id)) selected @endif>{{ $customer->name }}</option>
-        @endforeach
-    </select>
-    <br>
+        <form action="{{ route('rentals.update', $rental->id) }}" method="POST">
+            @csrf
+            @method('PUT')
 
-    <label for="rental_date">Rental Date:</label>
-    <input type="date" id="rental_date" name="rental_date" value="{{ old('rental_date', $rental->rental_date) }}">
-    <br>
+            <div class="form-group">
+                <label for="car_id">Car</label>
+                <select id="car_id" name="car_id" class="form-control">
+                    @foreach ($cars as $car)
+                        <option value="{{ $car->id }}" {{ $car->id == $rental->car_id ? 'selected' : '' }}>{{ $car->name }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-    <label for="return_date">Return Date:</label>
-    <input type="date" id="return_date" name="return_date" value="{{ old('return_date', $rental->return_date) }}">
-    <br>
+            <div class="form-group">
+                <label for="customer_id">Customer</label>
+                <select id="customer_id" name="customer_id" class="form-control">
+                    @foreach ($customers as $customer)
+                        <option value="{{ $customer->id }}" {{ $customer->id == $rental->customer_id ? 'selected' : '' }}>{{ $customer->name }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-    <label for="total_price">Total Price:</label>
-    <input type="text" id="total_price" name="total_price" value="{{ old('total_price', $rental->total_price) }}">
-    <br>
+            <div class="form-group">
+                <label for="start_date">Start Date</label>
+                <input type="date" id="start_date" name="start_date" class="form-control" value="{{ old('start_date', $rental->start_date) }}">
+            </div>
 
-    <button type="submit">Update Rental</button>
-</form>
+            <div class="form-group">
+                <label for="end_date">End Date</label>
+                <input type="date" id="end_date" name="end_date" class="form-control" value="{{ old('end_date', $rental->end_date) }}">
+            </div>
+
+            <div class="form-group">
+                <label for="total_price">Total Price</label>
+                <input type="text" id="total_price" name="total_price" class="form-control" value="{{ old('total_price', $rental->total_price) }}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update Rental</button>
+        </form>
+    </div>
+</div>
+@endsection
