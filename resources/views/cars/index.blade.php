@@ -36,6 +36,7 @@
                         <td>{{ $car->price_per_day }}</td>
                         <td>
                             <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-warning">Edit</a>
+                            
                             <form action="{{ route('cars.destroy', $car->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')

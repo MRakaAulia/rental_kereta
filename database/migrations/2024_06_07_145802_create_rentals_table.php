@@ -20,6 +20,13 @@ return new class extends Migration
             $table->decimal('total_price', 8, 2);
             $table->timestamps();
         });
+
+        Schema::table('rentals', function (Blueprint $table) {
+    
+    
+            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
+                $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            });
     }
 
     /**

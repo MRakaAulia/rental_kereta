@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CarController extends Controller
 {
@@ -49,9 +50,13 @@ class CarController extends Controller
         return redirect()->route('cars.index')->with('success', 'Car updated successfully.');
     }
 
-    public function destroy(Car $car)
-    {
+    // app/Http/Controllers/CarController.php
+public function destroy($id)
+{
+    $car = Car::find($id);
+    
         $car->delete();
         return redirect()->route('cars.index')->with('success', 'Car deleted successfully.');
-    }
+}
+
 }

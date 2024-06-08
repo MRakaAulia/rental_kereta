@@ -36,11 +36,12 @@
                         <td>{{ $customer->address }}</td>
                         <td>
                             <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-warning">Edit</a>
-                            <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
+<form action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display:inline;">
+    @csrf
+    @method('DELETE')
+<button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
                         </td>
                     </tr>
                 @endforeach

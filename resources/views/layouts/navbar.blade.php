@@ -5,7 +5,15 @@
     <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ url('/') }}" class="nav-link">Home</a>
     </li>
-    <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-    </li>
+    <li>
+    <form action="{{ route('logout') }}" method="POST">
+    @csrf
+    <button type="submit">Logout</button>
+</form>
+</li><li class="nav-item">
+    <a class="nav-link" href="{{ route('register') }}">Register</a>
+</li>
+
+
+
 </ul>
