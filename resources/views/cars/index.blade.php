@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Cars')
+@section('title', 'Motorcycle')
 
-@section('header', 'Cars')
+@section('header', 'Motorcycle')
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">List of Cars</h3>
+        <h3 class="card-title">List of Motorcycle</h3>
         <div class="card-tools">
-            <a href="{{ route('cars.create') }}" class="btn btn-primary">Add New Car</a>
+            <a href="{{ route('cars.create') }}" class="btn btn-primary">Add New Motorcycle</a>
         </div>
     </div>
     <div class="card-body">
@@ -36,7 +36,6 @@
                         <td>{{ $car->price_per_day }}</td>
                         <td>
                             <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-warning">Edit</a>
-                            
                             <form action="{{ route('cars.destroy', $car->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')

@@ -29,7 +29,7 @@ class CarController extends Controller
         ]);
 
         Car::create($request->all());
-        return redirect()->route('cars.index')->with('success', 'Car created successfully.');
+        return redirect()->route('cars.index')->with('success', 'Motorcycle created successfully.');
     }
 
     public function edit(Car $car)
@@ -47,7 +47,7 @@ class CarController extends Controller
         ]);
 
         $car->update($request->all());
-        return redirect()->route('cars.index')->with('success', 'Car updated successfully.');
+        return redirect()->route('cars.index')->with('success', 'Motorcycle updated successfully.');
     }
 
     // app/Http/Controllers/CarController.php
@@ -56,7 +56,7 @@ public function destroy($id)
     $car = Car::find($id);
     
         $car->delete();
-        return redirect()->route('cars.index')->with('success', 'Car deleted successfully.');
+        return redirect()->route('cars.index')->with('success', 'Motorcycle deleted successfully.');
 }
 
 }

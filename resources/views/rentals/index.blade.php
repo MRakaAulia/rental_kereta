@@ -20,7 +20,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Car</th>
+                    <th>Motorcycle</th>
                     <th>Customer</th>
                     <th>Start Date</th>
                     <th>End Date</th>
@@ -33,8 +33,8 @@
                     <tr>
                         <td>{{ $rental->car->name }}</td>
                         <td>{{ $rental->customer->name }}</td>
-                        <td>{{ $rental->start_date }}</td>
-                        <td>{{ $rental->end_date }}</td>
+                        <td>{{ $rental->rental_date }}</td>
+                        <td>{{ $rental->return_date }}</td>
                         <td>{{ $rental->total_price }}</td>
                         <td>
                             <a href="{{ route('rentals.edit', $rental->id) }}" class="btn btn-warning">Edit</a>

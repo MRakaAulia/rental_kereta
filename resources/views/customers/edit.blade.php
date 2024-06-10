@@ -39,10 +39,6 @@
                 <input type="text" id="phone" name="phone" class="form-control" value="{{ old('phone', $customer->phone) }}">
             </div>
 
-            <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" id="address" name="address" class="form-control" value="{{ old('address', $customer->address) }}">
-            </div>
 
             <button type="submit" class="btn btn-primary">Update Customer</button>
         </form>

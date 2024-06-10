@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Add Car')
+@section('title', 'Add Motorcycle')
 
-@section('header', 'Add Car')
+@section('header', 'Add Motorcycle')
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Add New Car</h3>
+        <h3 class="card-title">Add New Motorcycle</h3>
     </div>
     <div class="card-body">
         @if ($errors->any())
@@ -42,7 +42,7 @@
                 <input type="text" id="price_per_day" name="price_per_day" class="form-control" value="{{ old('price_per_day') }}">
             </div>
 
-            <button type="submit" class="btn btn-primary">Add Car</button>
+            <button type="submit" class="btn btn-primary">Add Motorcycle</button>
         </form>
     </div>
 </div>

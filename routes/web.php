@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\RentalController;
-
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -30,9 +30,16 @@ Route::resource('customers', CustomerController::class);
 
 Route::resource('rentals', RentalController::class);
 
-// Login
-Route::get('/login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('login');
-Route::post('/login', 'App\Http\Controllers\Auth\LoginController@login');
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::middleware('auth')->group(function () {
+    Route::resource('cars', CarController::class);
+    Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+});
 // Logout
 Route::post('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 

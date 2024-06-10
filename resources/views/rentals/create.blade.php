@@ -23,7 +23,7 @@
         <form action="{{ route('rentals.store') }}" method="POST">
             @csrf
             <div class="form-group">
-                <label for="car_id">Car</label>
+                <label for="car_id">Motorcycle</label>
                 <select id="car_id" name="car_id" class="form-control">
                     @foreach ($cars as $car)
                         <option value="{{ $car->id }}">{{ $car->name }}</option>
@@ -41,13 +41,13 @@
             </div>
 
             <div class="form-group">
-                <label for="start_date">Start Date</label>
-                <input type="date" id="start_date" name="start_date" class="form-control" value="{{ old('start_date') }}">
+                <label for="rental_date">Start Date</label>
+                <input type="date" id="rental_date" name="rental_date" class="form-control" value="{{ old('rental_date') }}">
             </div>
 
             <div class="form-group">
-                <label for="end_date">End Date</label>
-                <input type="date" id="end_date" name="end_date" class="form-control" value="{{ old('end_date') }}">
+                <label for="return_date">End Date</label>
+                <input type="date" id="return_date" name="return_date" class="form-control" value="{{ old('return_date') }}">
             </div>
 
             <div class="form-group">
